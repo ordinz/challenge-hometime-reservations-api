@@ -19,7 +19,7 @@ class BookingDotComProcessor < ReservationProcessor
         first_name: reservation_payload[:guest_first_name],
         last_name: reservation_payload[:guest_last_name],
         email: reservation_payload[:guest_email],
-        phone: reservation_payload[:guest_phone_numbers].join(', ')
+        phone: reservation_payload[:guest_phone_numbers].uniq.join(', ')
       }
     }
   end
